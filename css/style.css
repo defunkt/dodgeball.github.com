@@ -36,11 +36,14 @@ body {
 }
 
 div.section {
-  background: transparent url(../images/hr.png) center bottom repeat-x;
   position: relative;
   overflow: hidden;
   margin-bottom: 50px;
   padding-bottom: 50px;
+}
+
+div.hr {
+  background: transparent url(../images/hr.png) center bottom repeat-x;
 }
 
 div.section h3 {
@@ -286,4 +289,43 @@ div.section li.team li {
   position: relative;
   display: block;
   width: 50%;
+}
+
+div#challenge {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  height: 176px;
+  text-align: center;
+}
+
+div#challenge span.dodgeball {
+  display: block;
+  width: 170px;
+  height: 176px;
+  background: transparent url(../images/dodgeball.png) left top no-repeat;
+}
+
+div#challenge span.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+div#challenge span.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+div#challenge h4 {
+  color: #999;
+  font: normal 36px/24px ChunkFiveRegular, Rockwell, serif;
+  margin: 0;
+}
+
+div#challenge h3 {
+  font: normal 158px/120px BebasNeueRegular, Helvetica, Arial, serif;
+  margin: 20px 0 0;
+  color: #000;
 }
