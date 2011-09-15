@@ -309,6 +309,7 @@ div.section div#signup {
   height: 800px;
   display: block;
   padding: 71px 78px 0px 84px;
+  margin-left: -40px;
 }
 
 div.section div#signup h3 {
