@@ -6,6 +6,13 @@
     <link href="shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
     <script src="shared/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.js-pledge').click(function(){
+          $(this).find('.js-checkbox').toggleClass('unchecked checked')
+        })
+      })
+    </script>
   </head>
 
   <body class="documentation">
@@ -142,7 +149,7 @@
                 <tr class="space-below">
                   <td colspan="3">
                     <input type="text" name="team-image">
-                    <label for="team-image">Team Image</label>
+                    <label for="team-image">Team Image URL</label>
                   </td>
                 </tr>
                 <tr>
@@ -167,7 +174,7 @@
                     <label for="player-4">Player 4</label>
                   </td>
                 </tr>
-                <tr class="space-below">
+                <tr>
                   <td>
                     <input type="text" name="player-5">
                     <label for="player-5">Player 5</label>
@@ -176,6 +183,17 @@
                   <td>
                     <input type="text" name="player-6">
                     <label for="player-6">Player 6</label>
+                  </td>
+                </tr>
+                <tr class="space-below">
+                  <td>
+                    <input type="text" name="player-7">
+                    <label for="player-7">Player 7 (optional)</label>
+                  </td>
+                  <td class="spacer">&nbsp;</td>
+                  <td>
+                    <input type="text" name="player-8">
+                    <label for="player-8">Player 8 (optional)</label>
                   </td>
                 </tr>
                 <tr>
@@ -197,7 +215,7 @@
                   </td>
                 </tr>
               </table>
-              <div class="checkbox"><span></span> This company pledges to donate $3000 to this charity</div>
+              <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> This company pledges to donate $3000 to this charity</div>
               <button type="submit">Submit Team</button>
             </form>
           </div>

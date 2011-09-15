@@ -32,12 +32,12 @@
 }
 
 @font-face {
-    font-family: 'GoodDogRegular';
-    src: url('../fonts/GoodDog-webfont.eot');
-    src: url('../fonts/GoodDog-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/GoodDog-webfont.woff') format('woff'),
-         url('../fonts/GoodDog-webfont.ttf') format('truetype'),
-         url('../fonts/GoodDog-webfont.svg#GoodDogRegular') format('svg');
+    font-family: 'ArchitectsDaughterRegular';
+    src: url('../fonts/ArchitectsDaughter-webfont.eot');
+    src: url('../fonts/ArchitectsDaughter-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ArchitectsDaughter-webfont.woff') format('woff'),
+         url('../fonts/ArchitectsDaughter-webfont.ttf') format('truetype'),
+         url('../fonts/ArchitectsDaughter-webfont.svg#ArchitectsDaughterRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -306,18 +306,19 @@ div.section li.team li {
 div.section div#signup {
   background: transparent url(../images/paper.jpg) 0 0 no-repeat;
   width: 528px;
-  height: 875px;
+  height: 800px;
   display: block;
-  padding: 71px 78px 100px 84px;
+  padding: 71px 78px 0px 84px;
 }
 
 div.section div#signup h3 {
-  font: normal 102px/102px BebasNeueRegular, Helvetica, Arial, serif;
+  font: normal 80px/80px BebasNeueRegular, Helvetica, Arial, serif;
   text-align: center;
 }
 
 div.section div#signup table {
   width: 528px;
+  border-collapse: collapse;
 }
 
 div.section div#signup td {
@@ -328,6 +329,10 @@ div.section div#signup td.spacer {
   width: auto;
 }
 
+div.section tr.space-below td {
+  padding-bottom: 20px;
+}
+
 div.section div#signup input {
   width: 100%;
   padding: 0px;
@@ -336,7 +341,7 @@ div.section div#signup input {
   background: transparent;
   border: 0px;
   border-bottom: 2px solid #333;
-  font: normal 22px/20px 'GoodDogRegular', Georgia, Times, serif;
+  font: normal 14px/14px 'ArchitectsDaughterRegular', Georgia, Times, serif;
   color: #666;
 }
 
@@ -344,6 +349,58 @@ div.section div#signup label {
   font-size: 11px;
   color: #333;
   display: block;
+}
+
+div.section div#signup .pledge {
+  font-size: 11px;
+  color: #333;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  float: left;
+  margin-top: 10px;
+}
+
+div.section div#signup .unchecked,
+div.section div#signup .checked {
+  position: relative;
+  display: inline-block;
+  height: 21px;
+  width: 22px;
+  top: 3px;
+  background: transparent url(../images/check-sprite.png) 0 0 no-repeat;
+}
+
+div.section div#signup .unchecked {
+  background-position: 0px 0px;
+}
+
+div.section div#signup .checked {
+  background-position: 0px -21px;
+}
+
+div.section div#signup button {
+  background: none;
+  border: 2px solid #dfdfdf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font: normal 20px/18px BebasNeueRegular, Helvetica, Arial, serif;
+  letter-spacing: 1px;
+  padding: 7px 7px 5px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+  margin-top: 10px;
+}
+
+div.section div#signup button:hover {
+  background: #eee;
+  border-color: #ccc;
 }
 
 div#challenge {
