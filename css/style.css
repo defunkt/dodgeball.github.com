@@ -114,8 +114,8 @@ div#call-to-action h2 {
 
 div#the-pot {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 2px;
+  right: 2px;
   border: 2px solid #fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
