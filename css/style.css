@@ -82,7 +82,7 @@ div.section div.section-content {
 
 div.section h3 {
   font-size: 18px;
-  line-height: .8em;
+  line-height: 1em;
 }
 
 div.section p {
@@ -336,7 +336,7 @@ div.section tr.space-below td {
 div.section div#signup input {
   width: 100%;
   padding: 0px;
-  margin: 0px
+  margin: 0px;
   display: block;
   background: transparent;
   border: 0px;
@@ -349,6 +349,7 @@ div.section div#signup label {
   font-size: 11px;
   color: #333;
   display: block;
+  margin: 3px 0px 0px;
 }
 
 div.section div#signup .pledge {
