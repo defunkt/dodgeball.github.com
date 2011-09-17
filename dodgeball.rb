@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra_auth_github'
 
 require 'dm-core'
 require 'dm-migrations'
@@ -49,6 +50,16 @@ end
 DataMapper.auto_upgrade!
 
 class Dodgeball < Sinatra::Base
+  enable :sessions
+  set :session_secret, "8c23f5ecdef9c54b81244e5426727279"
+  set :github_options, { :scopes => '' }
+
+  register Sinatra::Auth::Github
+
+  def authgroup
+    @user = github_user
+    github_organization_authenticate!("github")
+  end
 
   def get_data
     @teams = Team.all(:valid => true)
@@ -84,6 +95,21 @@ class Dodgeball < Sinatra::Base
       get_data
       erb :index
     end
+  end
+
+  get '/auth' do
+    authenticate!
+    redirect '/'
+  end
+
+  get '/logout' do
+    logout!
+    redirect '/'
+  end
+
+  get '/admin' do
+    authgroup
+    erb :admin
   end
 
 end
