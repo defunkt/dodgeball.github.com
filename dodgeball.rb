@@ -22,7 +22,7 @@ class Team
   property :charity_url,  String
   property :github,       String
   property :twitter,      String
-  property :image,        Text
+  property :image,        String, :length => 250
   property :donation,     Integer, :default => 3000
   property :sponsored,    Integer
   property :cool,         Boolean, :default => false
