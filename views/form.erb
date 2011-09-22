@@ -1,0 +1,111 @@
+<div id="signup-start">
+<% if @team.errors.size > 0 %>
+  <div class="error">
+    <% @team.errors.each do |err| %>
+      <%= err %><br/>
+    <% end %>
+  </div>
+<% end %>
+</div>
+
+<div id="signup">
+  <h3>Team Signup</h3>
+  <form action="<%= @page %>" method="POST">
+    <% if @team.id %>
+      <input type="hidden" name="teamid" value="<%= @team.id %>">
+    <% end %>
+    <table>
+      <tr>
+        <td>
+          <input type="text" name="company-name" value="<%= @team.company %>">
+          <label for="company-name">Company Name <span class="req">*</span></label>
+        </td>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="company-twitter" value="<%= @team.twitter %>">
+          <label for="company-twitter">Twitter Name</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="text" name="team-name" value="<%= @team.name %>">
+          <label for="team-name">Team Name <span class="req">*</span></label>
+        </td>
+      </tr>
+      <tr class="space-below">
+        <td colspan="3">
+          <input type="text" name="team-image" value="<%= @team.image %>">
+          <label for="team-image">Team Image URL</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="player-1" value="<%= @team.player_1 %>">
+          <label for="player-1">Player 1</label>
+        </td>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="player-2" value="<%= @team.player_2 %>">
+          <label for="player-2">Player 2</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="player-3" value="<%= @team.player_3 %>">
+          <label for="player-3">Player 3</label>
+        </td>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="player-4" value="<%= @team.player_4 %>">
+          <label for="player-4">Player 4</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="player-5" value="<%= @team.player_5 %>">
+          <label for="player-5">Player 5</label>
+        </td>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="player-6" value="<%= @team.player_6 %>">
+          <label for="player-6">Player 6</label>
+        </td>
+      </tr>
+      <tr class="space-below">
+        <td>
+          <input type="text" name="player-7" value="<%= @team.player_7 %>">
+          <label for="player-7">Player 7 (optional)</label>
+        </td>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="player-8" value="<%= @team.player_8 %>">
+          <label for="player-8">Player 8 (optional)</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="text" name="charity-name" value="<%= @team.charity %>">
+          <label for="charity-name">Charity Name <span class="req">*</span></label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="text" name="charity-url" value="<%= @team.charity_url %>">
+          <label for="charity-url">Charity URL</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="text" name="contact-email" value="<%= @team.email %>">
+          <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
+        </td>
+      </tr>
+    </table>
+    <% if @team.id %>
+      <button type="submit">Save Changes</button>
+    <% else %>
+      <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> This company pledges to donate at least $3000 to the charity pot</div>
+      <button id="submit-team" type="submit">Signup Team</button>
+    <% end %>
+  </form>
+</div>

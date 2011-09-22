@@ -346,6 +346,13 @@ div.section div#signup input {
   color: #666;
 }
 
+div.section .error {
+  padding: 10px;
+  font: normal 14px/14px 'ArchitectsDaughterRegular', Georgia, Times, serif;
+  line-height: 28px;
+  color: #f66;
+}
+
 div.section div#signup label {
   font-size: 11px;
   color: #333;
@@ -442,4 +449,15 @@ div#challenge h3 {
   font: normal 158px/120px BebasNeueRegular, Helvetica, Arial, serif;
   margin: 20px 0 0;
   color: #000;
+}
+
+.req {
+  color: #f66;
+  font-weight: bold;
+}
+
+.instructions {
+  font-size: 3em;
+  line-height: 1em;
+  color: #444;
 }

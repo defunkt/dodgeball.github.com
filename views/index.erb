@@ -1,228 +1,85 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>First Annual Octocat Dodgeball Invitational</title>
-    <link href="shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="shared/js/jquery.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('.js-pledge').click(function(){
-          $(this).find('.js-checkbox').toggleClass('unchecked checked')
-        })
-      })
-    </script>
-  </head>
+<div id="call-to-action" class="section hr">
+  <h2>First Annual</h2>
+  <h1>octocat<br/>dodgeball<br/>invitational</h1>
+  <h2>Sunday, October 23rd</h2>
+  <div id="the-pot">
+    <span class="shine"></span>
+    <h3 class="title">The Pot</h3>
+    <h3 class="ammount">$<span id="ammount"><%= @pot %></span></h3>
+  </div>
+</div><!-- #header-wrapper -->
 
-  <body class="documentation">
-    <div id="header-wrapper">
-    </div><!-- #header-wrapper -->
+<div id="details" class="section hr">
+  <h3 class="section-title">Details</h3>
+  <div class="section-content">
+    <h3>Where?</h3>
+    <p>
+      <a href="http://g.co/maps/kexjk">Mission Recreation Center</a><br/>
+      2450 Harrison Street<br/>
+      San Francisco, California 94110
+    </p>
+    <h3>When?</h3>
+    <p>
+      Sunday, October 23rd
+    </p>
+    <h3>Why?</h3>
+    <p>
+      We where brainstorming in the office and decided we should throw balls at our enemies. But why stop at destroying our enemies with foam spheres? We decided to trick our enemies into giving charities money for the right to have their asses kicked. Hakuna matata.
+    </p>
+    <h3>What?</h3>
+    <p>
+    GitHub employees and a number of victims from other teams participate in an epic Dodgeball tournament.  Each team that is entered donates at least $3000 to the charity pot.  At the end, the charity of the winner gets 50% of the pot and everyone else splits the rest evenly.  In the process, thousands are entertained.
+    </p>
+  </div>
+</div><!-- #details -->
 
-    <div id="wrapper">
-
-      <div id="call-to-action" class="section hr">
-        <h2>First Annual</h2>
-        <h1>octocat<br/>dodgeball<br/>invitational</h1>
-        <h2>Sunday, October 23rd</h2>
-        <div id="the-pot">
-          <span class="shine"></span>
-          <h3 class="title">The Pot</h3>
-          <h3 class="ammount">$<span id="ammount"><%= @pot %></span></h3>
-        </div>
-      </div><!-- #header-wrapper -->
-
-      <div id="details" class="section hr">
-        <h3 class="section-title">Details</h3>
-        <div class="section-content">
-          <h3>Where?</h3>
-          <p>
-            1234 Dodgeball Death Lane<br />
-            San Francisco, California 94108
-          </p>
-          <h3>When?</h3>
-          <p>
-            Sunday, October 23rd
-          </p>
-          <h3>Why?</h3>
-          <p>
-            We got pretty bored in the office and decided we should throw balls at our enemies. But why stop at destroying our enemies with foam spheres? We decided to trick our enemies into giving charities money for the right to have their asses kicked. Hakuna matata.
-          </p>
-        </div>
-      </div><!-- #details -->
-
-      <div id="teams" class="section">
-        <h3 class="section-title">Teams</h3>
-        <div class="section-content">
-          <ul>
-            <% @teams.each do |team| %>
-            <li class="team">
-              <div class="team-header">
-                <img src="images/team-image.png" width="100" height="100" alt="Team Logo"/>
-                <div class="info">
-                  <h3><%= team.name %></h3>
-                  <!-- <a class="btn">sponsor this team</a> -->
-                </div>
-              </div>
-              <table class="team-content">
-                <tr>
-                  <th>Company</th>
-                  <th>Charity</th>
-                </tr>
-                <tr>
-                  <td><%= team.company %></td>
-                  <td><%= team.charity %></td>
-                </tr>
-                <tr>
-                  <th colspan="2">Team</th>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <ul>
-                      <% team.players.each do |player| %>
-                        <li><%= player.name %></li>
-                      <% end %>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </li>
-            <% end %>
-          </ul>
-          <div id="signup">
-            <% if @message %>
-              <div class="error"><%= @message %></div>
-            <% end %>
-            <h3>Team Signup</h3>
-            <form action="/new" method="POST">
-              <table>
-                <tr>
-                  <td>
-                    <input type="text" name="company-name" value="<%= @team.company %>">
-                    <label for="company-name">Company Name</label>
-                  </td>
-                  <td class="spacer">&nbsp;</td>
-                  <td>
-                    <input type="text" name="company-twitter" value="<%= @team.twitter %>">
-                    <label for="company-twitter">Twitter Name</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <input type="text" name="team-name" value="<%= @team.name %>">
-                    <label for="team-name">Team Name</label>
-                  </td>
-                </tr>
-                <tr class="space-below">
-                  <td colspan="3">
-                    <input type="text" name="team-image" value="<%= @team.image %>">
-                    <label for="team-image">Team Image URL</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" name="player-1" value="<%= @team.player_1 %>">
-                    <label for="player-1">Player 1</label>
-                  </td>
-                  <td class="spacer">&nbsp;</td>
-                  <td>
-                    <input type="text" name="player-2" value="<%= @team.player_2 %>">
-                    <label for="player-2">Player 2</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" name="player-3" value="<%= @team.player_3 %>">
-                    <label for="player-3">Player 3</label>
-                  </td>
-                  <td class="spacer">&nbsp;</td>
-                  <td>
-                    <input type="text" name="player-4" value="<%= @team.player_4 %>">
-                    <label for="player-4">Player 4</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" name="player-5" value="<%= @team.player_5 %>">
-                    <label for="player-5">Player 5</label>
-                  </td>
-                  <td class="spacer">&nbsp;</td>
-                  <td>
-                    <input type="text" name="player-6" value="<%= @team.player_6 %>">
-                    <label for="player-6">Player 6</label>
-                  </td>
-                </tr>
-                <tr class="space-below">
-                  <td>
-                    <input type="text" name="player-7" value="<%= @team.player_7 %>">
-                    <label for="player-7">Player 7 (optional)</label>
-                  </td>
-                  <td class="spacer">&nbsp;</td>
-                  <td>
-                    <input type="text" name="player-8" value="<%= @team.player_8 %>">
-                    <label for="player-8">Player 8 (optional)</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <input type="text" name="charity-name" value="<%= @team.charity %>">
-                    <label for="charity-name">Charity Name</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <input type="text" name="charity-url" value="<%= @team.charity_url %>">
-                    <label for="charity-url">Charity URL</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <input type="text" name="contact-email" value="<%= @team.email %>">
-                    <label for="contact-email">Email (so we can contact you to set up your donation)</label>
-                  </td>
-                </tr>
-              </table>
-              <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> This company pledges to donate at least $3000 to the charity pot</div>
-              <button type="submit">Submit Team</button>
-            </form>
+<div id="teams" class="section">
+  <h3 class="section-title">Teams</h3>
+  <div class="section-content">
+    <ul>
+      <% @teams.each do |team| %>
+      <li class="team">
+        <div class="team-header">
+          <%= team.team_image %>
+          <div class="info">
+            <h3><%= team.name %></h3>
+            <!-- <a class="btn">sponsor this team</a> -->
           </div>
         </div>
-      </div><!-- #teams -->
-      <div id="challenge">
-        <span class="dodgeball left"></span>
-        <h4>Think you have</h4>
-        <h3>The Balls?</h3>
-        <span class="dodgeball right"></span>
-      </div>
-    </div><!-- #wrapper -->
-
-     <div id="footer" >
-      <div class="lower_footer">
-        <div class="footer_inner clearfix">
-            <div id="legal"> 
-              <!--[if IE]><a class="home_ie" href="http://github.com">Home</a><![endif]-->
-              <![if !IE]><a class="home" href="http://github.com">Home</a><![endif]>
-              
-              <ul id="legal_links">
-                <li><a href="http://help.github.com/terms-of-service/">Terms of Service</a></li>
-                <li><a href="http://help.github.com/privacy-policy/">Privacy</a></li>
-                <li><a href="http://help.github.com/security/">Security</a></li>
+        <table class="team-content">
+          <tr>
+            <th>Company</th>
+            <th>Charity</th>
+          </tr>
+          <tr>
+            <td><%= team.company %></td>
+            <td><%= team.charity %></td>
+          </tr>
+          <tr>
+            <th colspan="2">Team</th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <ul>
+                <% team.players.each do |player| %>
+                  <li><%= player %></li>
+                <% end %>
               </ul>
+            </td>
+          </tr>
+        </table>
+      </li>
+      <% end %>
+    </ul>
 
-              <p>&copy; <span id="year">year</span> GitHub Inc. All rights reserved.</p>
-            </div><!-- /#legal or /#legal_ie-->
+    <% @page = "/new#signup-start" %>
+    <%= erb :form %>
 
-            <div class="sponsor">
-              <a href="http://www.rackspace.com" class="logo">
-                <img src="shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
-              </a>
-              Powered by the <a href="http://www.rackspace.com ">Dedicated
-              Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
-              Computing</a> of Rackspace Hosting<span>&reg;</span>
-          </div>
-        </div><!-- /.site -->
-      </div><!-- /.lower_footer -->
-    </div><!-- /#footer -->
-
-  </body>
-</html>
+  </div>
+</div><!-- #teams -->
+<div id="challenge">
+  <span class="dodgeball left"></span>
+  <h4>Think you have</h4>
+  <h3>The Balls?</h3>
+  <span class="dodgeball right"></span>
+</div>

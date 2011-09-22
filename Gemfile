@@ -1,10 +1,13 @@
 source "http://rubygems.org"
 
 gem "sinatra"
+gem "sinatra_auth_github"
+
 gem "dm-core"
 gem "dm-migrations"
 gem "dm-validations"
 gem "dm-timestamps"
+
 gem "tinder"
 
 group :production do

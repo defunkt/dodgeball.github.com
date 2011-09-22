@@ -1,0 +1,48 @@
+<% if @new_teams.size > 0 %>
+  <div class="section hr">
+    <h1>New Teams</h1>
+    <table width="100%">
+    <% @new_teams.each do |team| %>
+      <tr>
+        <td>
+          <a href="/edit/<%= team.id %>">edit</a> | 
+          <a href="/verify/<%= team.id %>">verify</a>
+        </td>
+        <td><%= team.name %></td>
+        <td><%= team.company %></td>
+        <td><a href="<%= team.charity_url %>"><%= team.charity %></a></td>
+        <td><%= team.email %></td>
+        <td><%= team.twitter %></td>
+        <td><%= team.players.join(', ') %></td>
+        <td><%= team.team_image(30) %></td>
+        <td>
+          <a href="/delete/<%= team.id %>">delete</a> 
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+<% end %>
+
+<% if @cool_teams.size > 0 %>
+<div class="section hr">
+  <h1>Verified Teams</h1>
+    <table width="100%">
+    <% @cool_teams.each do |team| %>
+      <tr>
+        <td>
+          <a href="/edit/<%= team.id %>">edit</a>
+          <a href="/unverify/<%= team.id %>">unverify</a>
+        </td>
+        <td><%= team.name %></td>
+        <td><%= team.company %></td>
+        <td><a href="<%= team.charity_url %>"><%= team.charity %></a></td>
+        <td><%= team.email %></td>
+        <td><%= team.twitter %></td>
+        <td><%= team.players.join(', ') %></td>
+        <td><%= team.team_image(30) %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+<% end %>

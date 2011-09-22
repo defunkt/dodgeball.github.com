@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>First Annual Octocat Dodgeball Invitational</title>
+    <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="/shared/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#submit-team').attr('disabled', 'disabled');
+        $('.js-pledge').click(function(){
+          $(this).find('.js-checkbox').toggleClass('unchecked checked')
+          $('#submit-team').removeAttr('disabled')
+        })
+      })
+    </script>
+  </head>
+
+  <body class="documentation">
+    <div id="header-wrapper">
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+
+      <%= yield %>
+
+    </div><!-- #wrapper -->
+
+     <div id="footer" >
+      <div class="lower_footer">
+        <div class="footer_inner clearfix">
+            <div id="legal"> 
+              <!--[if IE]><a class="home_ie" href="http://github.com">Home</a><![endif]-->
+              <![if !IE]><a class="home" href="http://github.com">Home</a><![endif]>
+              
+              <ul id="legal_links">
+                <li><a href="http://help.github.com/terms-of-service/">Terms of Service</a></li>
+                <li><a href="http://help.github.com/privacy-policy/">Privacy</a></li>
+                <li><a href="http://help.github.com/security/">Security</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> GitHub Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+
+            <div class="sponsor">
+              <a href="http://www.rackspace.com" class="logo">
+                <img src="/shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
+              </a>
+              Powered by the <a href="http://www.rackspace.com ">Dedicated
+              Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
+              Computing</a> of Rackspace Hosting<span>&reg;</span>
+          </div>
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+
+  </body>
+</html>
