@@ -16,13 +16,13 @@ class Team
   has n, :sponsors
 
   property :id,         Serial
-  property :name,       String, :length => 250, :required => true, :message => "Cmon, you need a team name"
+  property :name,       String, :required => true, :message => "Cmon, you need a team name"
   property :company,    String, :required => true, :message => "Needs a company name"
   property :charity,    String, :required => true, :message => "You gotta play for a charity, my friend"
-  property :charity_url,  String, :length => 250
+  property :charity_url,  String
   property :github,       String
   property :twitter,      String
-  property :image,        String, :length => 250
+  property :image,        String
   property :donation,     Integer, :default => 3000
   property :sponsored,    Integer
   property :cool,         Boolean, :default => false
