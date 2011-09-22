@@ -7,6 +7,7 @@ gem "dm-core"
 gem "dm-migrations"
 gem "dm-validations"
 gem "dm-timestamps"
+gem "heroku"
 
 gem "tinder"
 

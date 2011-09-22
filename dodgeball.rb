@@ -5,6 +5,8 @@ require 'dm-migrations'
 require 'dm-validations'
 require 'dm-timestamps'
 
+require 'tinder'
+
 ## -- DATABASE STUFF --
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/local.db")
@@ -65,6 +67,12 @@ DataMapper.auto_upgrade!
 class Dodgeball < Sinatra::Base
   enable :sessions
   set :session_secret, "8c23f5ecdef9c54b81244e5426727279"
+
+  def notify_campfire(team)
+    hubot = Tinder::Campfire.new ENV['CF_GROUP'], :token => ENV['CF_TOKEN']
+    room = hubot.find_room_by_name(ENV['CF_ROOM'])
+    room.speak "new dodgeball signup: #{team.name} of #{team.company}"
+  end
 
   def get_data
     @teams = Team.all(:cool => true)
@@ -171,6 +179,7 @@ class Dodgeball < Sinatra::Base
     @team = Team.new
     fill_team(@team, params)
     if @team.save
+      notify_campfire(@team)
       redirect '/thankyou'
     else
       get_data
